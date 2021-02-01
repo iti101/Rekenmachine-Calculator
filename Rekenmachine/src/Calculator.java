@@ -1,37 +1,46 @@
 import java.util.Scanner;
+
 public class Calculator {
+
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
-        System.out.print("Enter two numbers: ");
-// nextDouble() reads the next double from the keyboard
-        double first = reader.nextDouble();
-        double second = reader.nextDouble();
+// create new variable "numbers" as container the user-input
+        Scanner numbers = new Scanner(System.in);
+// print "Please enter two numbers: " to screen
+        System.out.print("Please enter two numbers: ");
+// nextDouble() reads the numbers entered by user
+        double first = numbers.nextDouble();
+        double second = numbers.nextDouble();
+// print "Enter an operator (+, -, *, /): " to screen
         System.out.print("Enter an operator (+, -, *, /): ");
-        char operator = reader.next().charAt(0);
-        double result;
-//switch case for each of the operations
+// next().charAt(0) reads the numbers entered by user
+        char operator = numbers.next().charAt(0);
+// creates variable to contain the result of the calculation
+        double answer;
+// switch case for each of the entered operator possibilities
         switch(operator)
         {
+// in 'case' of addition
             case '+':
-                result = first + second;
+                answer = first + second;
                 break;
+// in 'case' of subtraction
             case '-':
-                result = first - second;
+                answer = first - second;
                 break;
+// in 'case' of multiplication
             case '*':
-                result = first * second;
+                answer = first * second;
                 break;
+// in 'case' of division
             case '/':
-                result = first / second;
+                answer = first / second;
                 break;
-// operator doesn't match any case constant (+, -, *, /)
-
-
+// prints out "Error! operator is not correct" in case user-entered operator isn't correct
             default:
-                System.out.printf("Error! operator is not correct");
+                System.out.print("Error! operator is not correct");
                 return;
         }
 //printing the result of the operations
-        System.out.printf("%.1f %c %.1f = %.1f", first, operator, second, result);
+        System.out.printf("%.1f %c %.1f = %.1f", first, operator, second, answer);
     }
 }
